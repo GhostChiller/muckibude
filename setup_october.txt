@@ -1,0 +1,14 @@
+$ cd /var/www
+$ composer create-project october/october myoctober
+$ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/myoctober.conf
+$ sudo nano /etc/apache2/sites-available/myoctober.conf
+
+myoctober.conf editieren:
+
+ServerName myoctober.localhost
+ServerAlias www.myoctober.localhost
+DocumentRoot /var/www/myoctober
+
+$ sudo a2dissite 000-default
+$ sudo a2ensite myoctober
+$ sudo systemctrl reload apache2
